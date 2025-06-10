@@ -69,6 +69,39 @@ iframe {
   border: none;
 }
 
+.rating {
+  margin: 20px 0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-direction: row;
+}
+
+.star {
+  color: #888;
+  transition: transform 0.2s ease;
+}
+
+.star.filled {
+  color: #FFD700;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.rating-label {
+  font-size: 1.6rem;
+  font-weight: 600;  
+  color: #fff;
+  opacity: 0.9;
+  margin-left: 10px;
+}
+
+
+
+
 @media (max-width: 480px) {
   iframe {
     height: 200px;
