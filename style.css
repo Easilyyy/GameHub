@@ -5,9 +5,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+
 body {
-  background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, 
-  #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background: radial-gradient(circle at top, #80929e, #a4aed8, #a5b4fc);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -16,12 +17,55 @@ body {
   justify-content: center;
   padding: 20px;
   text-align: center;
+  transition: background 0.5s ease, color 0.4s ease;
 }
 
-.home-logo {
+
+
+body.dark-mode {
+  background: radial-gradient(circle at top, #0f172a, #0b1120, #05070f);
+  color: #e2e8f0;
+}
+
+
+body.dark-mode .link-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .link-btn:hover {
+  background: #fdfeff;
+  color: #2e2c2c;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
+}
+
+
+body.dark-mode .letsplays-section .link-btn {
+  background: rgba(255,255,255,0.06);
+}
+
+body.dark-mode .letsplays-section .link-btn:hover {
+  background: #fdfeff;
+  color: #2e2c2c;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
+
+}
+
+
+body.dark-mode .profile-pic {
+  border: 3px solid #1e293b;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+
+
+.home-logo,
+.moon-logo {
   position: fixed;
   top: 15px;
-  right: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,12 +79,17 @@ body {
   z-index: 1000;
 }
 
-.home-logo:hover {
+.home-logo { right: 15px; }
+.moon-logo { left: 15px; }
+
+.home-logo:hover,
+.moon-logo:hover {
   background: white;
   transform: scale(1.1);
 }
 
-.home-logo svg {
+.home-logo svg,
+.moon-logo svg {
   fill: #764ba2;
   transition: fill 0.3s ease;
 }
@@ -48,6 +97,29 @@ body {
 .home-logo:hover svg {
   fill: #4a3785;
 }
+
+.moon-logo:hover svg {
+  fill: #ffd700;
+}
+
+
+body.dark-mode .home-logo,
+body.dark-mode .moon-logo {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .home-logo:hover,
+body.dark-mode .moon-logo:hover {
+  background: #334155;
+}
+
+body.dark-mode .home-logo svg,
+body.dark-mode .moon-logo svg {
+  fill: #ffd700;
+}
+
+
 
 header {
   margin-bottom: 1rem;
@@ -65,6 +137,16 @@ header p {
   opacity: 0.85;
 }
 
+.intro {
+  max-width: 380px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+
+
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -75,13 +157,7 @@ header p {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.intro {
-  max-width: 380px;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  opacity: 0.9;
-}
+
 
 .links {
   display: flex;
@@ -103,12 +179,15 @@ header p {
   user-select: none;
 }
 
-.link-btn:hover {
-  background: white;
-  color: #764ba2;
+
+.link-btn:hover,
+.letsplays-section .link-btn:hover {
+  background: #fdfeff;
+  color: #2e2c2c;
   transform: scale(1.05);
-  box-shadow: 0 0 12px #fff;
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
 }
+
 
 .letsplays-section {
   display: block;
@@ -138,11 +217,11 @@ header p {
 }
 
 .letsplays-section .link-btn:hover {
-  background: white;
-  color: #764ba2;
+  background: #fdfeff;
+  color: #2e2c2c;
   transform: scale(1.05);
-  box-shadow: 0 0 15px #fff;
-}
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
+  }
 
 .videos-container {
   display: flex;
@@ -203,7 +282,10 @@ footer {
   opacity: 0.6;
 }
 
+
+
 @media (max-width: 480px) {
+
   header h1 {
     font-size: 1.8rem;
   }
@@ -230,20 +312,14 @@ footer {
     font-size: 1rem;
   }
 
-  iframe {
-    height: 200px;
-  }
-
-  .video-wrapper {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .home-logo {
+  .home-logo,
+  .moon-logo {
     width: 38px;
     height: 38px;
     top: 10px;
-    right: 10px;
   }
+
+  .home-logo { right: 10px; }
+  .moon-logo { left: 10px; }
 }
 
