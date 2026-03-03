@@ -1,6 +1,17 @@
-const pseudo = "Easiiily";
+const moonToggle = document.querySelector(".moon-logo");
 
-document.getElementById("pseudo").textContent = pseudo;
-document.getElementById("intro-text").textContent = 
-  `Salut, moi c'est ${pseudo} ! Passionné de gaming, je stream sur Twitch, je crée du contenu sur YouTube et je suis très actif sur TikTok, Instagram et X. Rejoins-moi pour ne rien rater !`;
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark-mode");
+}
 
+if (moonToggle) {
+  moonToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+}
